@@ -7,7 +7,7 @@
     <script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
   </head>
   <body>
-    <a-scene>
+    <a-scene cursor="rayOrigin: mouse">
 
       <!-- Declaración de assets-->
       <a-assets>
@@ -15,12 +15,20 @@
         <a-asset-item id="tv" src="activos/tv.glb"> </a-asset-item>
         <a-asset-item id="doorway" src="activos/doorway.glb"> </a-asset-item>
         <a-asset-item id="skate" src="activos/skate.glb"> </a-asset-item>
+        <audio id="sfx" src="activos/paw.mp3" preload="auto"></audio>
+        <audio id="sfx2" src="activos/paw_3.mp3" preload="auto"></audio>
+        <audio id="sfx3" src="activos/paw_full.mp3" preload="auto"></audio>
+        <audio id="sfx4" src="activos/paw_fullfull.mp3" preload="auto"></audio>
       </a-assets>
       <!---->
 
       <!-- Mundo base-->
-      <a-entity camera="fov: 60" look-controls wasd-controls position="0 1 2"></a-entity>
-      <a-plane rotation="-90 0 0" width="8" height="8">
+      <a-entity camera="fov: 60" look-controls wasd-controls position="0 1 2">
+        <a-cursor color="222D62"></a-cursor>
+      </a-entity>
+      <a-plane rotation="-90 0 0" width="8" height="8"
+      animation__click="property: rotation; from: -90 0 0; to: 270 360 360; dur: 600; startEvents: click"
+      sound="src: #sfx4; on: click">
       </a-plane> 
 
       <a-sky color="#222D62">
@@ -31,18 +39,26 @@
       <a-entity gltf-model="#tv"
         position="0 0 -2"
         scale="2 2 2"
-        rotation="0 180 0">
+        rotation="0 180 0"
+        animation__enter="property: scale; to: 2.2 2.2 2.2; dur: 100; startEvents: mouseenter"
+        animation__leave="property: scale; to: 2 2 2; dur: 100; startEvents: mouseleave"
+        animation__click="property: rotation; from: 0 180 0; to: 360 -180 360; dur: 300; startEvents: click"
+        sound="src: #sfx2; on: click">
       </a-entity>
 
       <a-entity gltf-model="#skate"
-        position="1 0 -2"
-        scale="1 1 1"> 
+        position="1 0.1 -0.5"
+        scale="1 1 1"
+        animation__click="property: rotation; from: 0 0 0; to: 360 360 360; dur: 300; startEvents: click"
+        sound="src: #sfx; on: click"> 
       </a-entity>
 
       <a-entity gltf-model="#doorway"
         position="0 0 -0.3"
         scale="1.2 1 1.5"
-        rotation="0 90 0"> 
+        rotation="0 90 0"
+        animation__click="property: rotation; from: 0 90 0; to: 360 -270 360; dur: 300; startEvents: click"
+        sound="src: #sfx3; on: click"> 
       </a-entity>
       <!---->
 
