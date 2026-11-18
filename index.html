@@ -17,8 +17,11 @@
         <a-asset-item id="doorway" src="activos/doorway.glb"> </a-asset-item>
         <a-asset-item id="skate" src="activos/skate.glb"> </a-asset-item>
         <a-asset-item id="cover" src="activos/crackpots.jpg"></a-asset-item>
+        <a-asset-item id="cover_c" src="activos/colorbound.jpg"></a-asset-item>
         <video id="crackpots_video" src="activos/crackpots_video_720p.mp4" autoplay loop="true"> </video>
         <audio id="crackpots_audio" src="activos/crackpots_audio.mp3"></audio>
+        <video id="colorbound_video" src="activos/colorbound_video_720p.mp4" autoplay loop="true"> </video>
+        <audio id="colorbound_audio" src="activos/colorbound_audio.mp3"></audio>
         <audio id="sfx" src="activos/paw.mp3" preload="auto"></audio>
         <audio id="sfx2" src="activos/paw_3.mp3" preload="auto"></audio>
         <audio id="sfx3" src="activos/paw_full.mp3" preload="auto"></audio>
@@ -30,7 +33,7 @@
       <a-entity camera="fov: 60"
         look-controls
         wasd-controls
-        position="0 1 2">
+        position="0 1 2d">
       </a-entity>
 
       <a-entity raycaster="objects: .interactuable" cursor="rayOrigin: mouse">
@@ -53,14 +56,15 @@
         rotation="0 180 0"
         animation__enter="property: scale; to: 2.2 2.2 2.2; dur: 100; startEvents: mouseenter"
         animation__leave="property: scale; to: 2 2 2; dur: 100; startEvents: mouseleave"
-        sound="src: #crackpots_audio; autoplay: true; refDistance: 2; rolloffFactor: 200; maxDistance: 2; volume: 0.2"
+        sound="src: #crackpots_audio; autoplay: true; refDistance: 3; rolloffFactor: 100; maxDistance: 115; volume: 0.15"
         event-set__enter="_event: mouseenter; _target: #texto; visible: true"
         event-set__enter2="_event: mouseenter; _target: #image; visible: true"
         event-set__leave="_event: mouseleave; _target: #texto; visible: false"
         event-set__leave2="_event: mouseleave; _target: #image; visible: false">
         <a-video src="#crackpots_video"
           position="0 0.262 -0.022"
-          scale="0.672 0.370 1">
+          scale="0.672 0.370 1"
+          rotation="0 180 0">
         </a-video>
         <a-text id="texto"
           value="A spellslinging dueling game for up to 4 players.\nChoose among seven cracked mages and use their unique abilities to shoot down your opponent's magical flask while defending yours!\nDestroy your friends (and loved ones) in local or online modes!"
@@ -76,7 +80,44 @@
           src="#cover"
           visible="false"
           position="0 0.696 -0.01"
-          scale="0.648 0.3645 1">
+          scale="0.648 0.3645 1"
+          rotation="0 180 0">
+        </a-image>
+      </a-entity>
+
+      <a-entity gltf-model="#tv"
+        class="interactuable"
+        position="5 0 -2"
+        scale="2 2 2"
+        rotation="0 180 0"
+        animation__enter="property: scale; to: 2.2 2.2 2.2; dur: 100; startEvents: mouseenter"
+        animation__leave="property: scale; to: 2 2 2; dur: 100; startEvents: mouseleave"
+        sound="src: #colorbound_audio; autoplay: true; refDistance: 3; rolloffFactor: 100; maxDistance: 115; volume: 0.15"
+        event-set__enter="_event: mouseenter; _target: #texto_c; visible: true"
+        event-set__enter2="_event: mouseenter; _target: #image_c; visible: true"
+        event-set__leave="_event: mouseleave; _target: #texto_c; visible: false"
+        event-set__leave2="_event: mouseleave; _target: #image_c; visible: false">
+        <a-video src="#colorbound_video"
+          position="0 0.262 -0.022"
+          scale="0.672 0.370 1"
+          rotation="0 180 0">
+        </a-video>
+        <a-text id="texto_c"
+          value="In Colorbound, color is more than just hue.\nAs Anku, an Aymara boy with a unique gift, you'll harness the power of color to shape the environment itself, uncovering hidden paths to navigate challenging and complex puzzles."
+          baseline="bottom"
+          align="left"
+          rotation="0 180 0"
+          width="1.2"
+          position="-0.4 0.54 0"
+          visible="false">
+        </a-text>
+        <a-image id="image_c"
+          class="not_interactuable"
+          src="#cover_c"
+          visible="false"
+          position="0 0.696 -0.01"
+          scale="0.648 0.3645 1"
+          rotation="0 180 0">
         </a-image>
       </a-entity>
 
