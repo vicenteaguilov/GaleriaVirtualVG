@@ -16,6 +16,7 @@
         <a-asset-item id="doorway" src="activos/doorway.glb"> </a-asset-item>
         <a-asset-item id="skate" src="activos/skate.glb"> </a-asset-item>
         <video id="crackpots_video" src="activos/crackpots_video_720p.mp4" autoplay loop="true" muted> </video>
+        <audio id="crackpots_audio" src="activos/crackpots_video_720p.mp4"></audio>
         <audio id="sfx" src="activos/paw.mp3" preload="auto"></audio>
         <audio id="sfx2" src="activos/paw_3.mp3" preload="auto"></audio>
         <audio id="sfx3" src="activos/paw_full.mp3" preload="auto"></audio>
@@ -44,7 +45,8 @@
         animation__enter="property: scale; to: 2.2 2.2 2.2; dur: 100; startEvents: mouseenter"
         animation__leave="property: scale; to: 2 2 2; dur: 100; startEvents: mouseleave"
         animation__click="property: rotation; from: 0 180 0; to: 360 -180 360; dur: 300; startEvents: click"
-        sound="src: #crackpots_video; autoplay=true">
+        sound="src: #sfx2; on: click"
+        sound="src: #crackpots_audio; autoplay=true">
         <a-video src="#crackpots_video"
           position="0 0.262 -0.022"
           scale="0.672 0.370 1">
