@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Galería de videojuegos XR</title>
     <script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
   </head>
   <body>
     <a-scene cursor="rayOrigin: mouse">
@@ -15,6 +16,7 @@
         <a-asset-item id="tv" src="activos/tv.glb"> </a-asset-item>
         <a-asset-item id="doorway" src="activos/doorway.glb"> </a-asset-item>
         <a-asset-item id="skate" src="activos/skate.glb"> </a-asset-item>
+        <a-asset-item id="cover" src="activos/crackpots.jpg"></a-asset-item>
         <video id="crackpots_video" src="activos/crackpots_video_720p.mp4" autoplay loop="true" muted> </video>
         <audio id="crackpots_audio" src="activos/crackpots_video_720p.mp4"></audio>
         <audio id="sfx" src="activos/paw.mp3" preload="auto"></audio>
@@ -46,11 +48,30 @@
         animation__leave="property: scale; to: 2 2 2; dur: 100; startEvents: mouseleave"
         animation__click="property: rotation; from: 0 180 0; to: 360 -180 360; dur: 300; startEvents: click"
         sound="src: #sfx2; on: click"
-        sound="src: #crackpots_audio; autoplay=true">
+        sound="src: #crackpots_audio; autoplay=true"
+        event-set__enter="_event: mouseenter; _target: #texto; visible: true"
+        event-set__enter2="_event: mouseenter; _target: #image; visible: true"
+        event-set__leave="_event: mouseleave; _target: #texto; visible: false"
+        event-set__leave2="_event: mouseleave; _target: #image; visible: false">
         <a-video src="#crackpots_video"
           position="0 0.262 -0.022"
           scale="0.672 0.370 1">
         </a-video>
+        <a-text id="texto"
+          value="A spellslinging dueling game for up to 4 players.\nChoose among seven cracked mages and use their unique abilities to shoot down your opponent's magical flask while defending yours!\nDestroy your friends (and loved ones) in local or online modes!"
+          baseline="bottom"
+          align="left"
+          rotation="0 180 0"
+          width="1.2"
+          position="-0.4 0.54 0"
+          visible="false">
+        </a-text>
+        <a-image id="image"
+          src="#cover"
+          visible="false"
+          position="0 0.696 -0.01"
+          scale="0.648 0.3645 1">
+        </a-image>
       </a-entity>
 
       <a-entity gltf-model="#skate"
