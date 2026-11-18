@@ -17,7 +17,8 @@
         <a-asset-item id="doorway" src="activos/doorway.glb"> </a-asset-item>
         <a-asset-item id="skate" src="activos/skate.glb"> </a-asset-item>
         <a-asset-item id="cover" src="activos/crackpots.jpg"></a-asset-item>
-        <video id="crackpots_video" src="activos/crackpots_video_720p.mp4" autoplay loop="true" muted> </video>
+        <video id="crackpots_video" src="activos/crackpots_video_720p.mp4" autoplay loop="true"> </video>
+        <audio id="crackpots_audio" src="activos/crackpots_audio.mp3"></audio>
         <audio id="sfx" src="activos/paw.mp3" preload="auto"></audio>
         <audio id="sfx2" src="activos/paw_3.mp3" preload="auto"></audio>
         <audio id="sfx3" src="activos/paw_full.mp3" preload="auto"></audio>
@@ -35,7 +36,7 @@
       <a-entity raycaster="objects: .interactuable" cursor="rayOrigin: mouse">
       </a-entity>
 
-      <a-plane rotation="-90 0 0" width="8" height="8"
+      <a-plane rotation="-90 0 0" width="20" height="20"
         animation__click="property: rotation; from: -90 0 0; to: 270 360 360; dur: 600; startEvents: click"
         sound="src: #sfx4; on: click">
       </a-plane> 
@@ -52,7 +53,7 @@
         rotation="0 180 0"
         animation__enter="property: scale; to: 2.2 2.2 2.2; dur: 100; startEvents: mouseenter"
         animation__leave="property: scale; to: 2 2 2; dur: 100; startEvents: mouseleave"
-        sound="src: #crackpots_audio; autoplay: true"
+        sound="src: #crackpots_audio; autoplay: true; refDistance: 2; rolloffFactor: 200; maxDistance: 2; volume: 0.2"
         event-set__enter="_event: mouseenter; _target: #texto; visible: true"
         event-set__enter2="_event: mouseenter; _target: #image; visible: true"
         event-set__leave="_event: mouseleave; _target: #texto; visible: false"
@@ -77,13 +78,6 @@
           position="0 0.696 -0.01"
           scale="0.648 0.3645 1">
         </a-image>
-      </a-entity>
-
-      <a-entity gltf-model="#skate"
-        position="1 0.1 -0.5"
-        scale="1 1 1"
-        animation__click="property: rotation; from: 0 0 0; to: 360 360 360; dur: 300; startEvents: click"
-        sound="src: #sfx; on: click"> 
       </a-entity>
 
       <a-entity gltf-model="#doorway"
