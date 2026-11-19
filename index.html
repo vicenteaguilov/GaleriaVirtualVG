@@ -63,7 +63,7 @@
       <!-- Implementación de assets -->
       <a-entity gltf-model="#tv"
         class="interactuable"
-        position="-2.5 0 -2"
+        position="-2.5 0.302 -2"
         scale="2 2 2"
         rotation="0 180 0"
         animation__enter="property: scale; to: 2.2 2.2 2.2; dur: 100; startEvents: mouseenter"
@@ -99,7 +99,7 @@
 
       <a-entity gltf-model="#tv"
         class="interactuable"
-        position="2.5 0 -2"
+        position="2.5 0.302 -2"
         scale="2 2 2"
         rotation="0 180 0"
         animation__enter="property: scale; to: 2.2 2.2 2.2; dur: 100; startEvents: mouseenter"
@@ -141,12 +141,25 @@
         sound="src: #sfx3; on: click"> 
       </a-entity>
 
-      <a-entity gltf-model="#doorway"
-        position="0 0 1.5"
-        scale="1.2 1 1.5"
+      <a-entity gltf-model="#table"
+        position="3.379 -0.023 -2.361"
+        scale="2.149 1 1.500"
+        rotation="0 0 0"> 
+      </a-entity>
+
+      <a-entity gltf-model="#table"
+        position="-1.578 -0.023 -2.361"
+        scale="2.149 1 1.500"
+        rotation="0 0 0"> 
+      </a-entity>
+
+      <a-entity gltf-model="#soda"
+        class="interactuable"
+        position="-1.719 0.301 -2.052"
+        scale="0.3 0.3 0.3"
         rotation="0 90 0"
         animation__click="property: rotation; from: 0 90 0; to: 360 -270 360; dur: 300; startEvents: click"
-        sound="src: #sfx3; on: click"> 
+        sound="src: #sfx2; on: click"> 
       </a-entity>
 
       <!---->
